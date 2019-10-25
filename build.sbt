@@ -87,6 +87,7 @@ val bigdataossVersion = "1.9.16"
 val gaxVersion = "1.38.0"
 val googleAuthVersion = "0.12.0"
 val bigQueryStorageVersion = "0.79.0-alpha"
+val httpCoreVersion = "4.4.11"
 
 lazy val mimaSettings = Seq(
   mimaPreviousArtifacts :=
@@ -644,7 +645,9 @@ lazy val scioElasticsearch2: Project = Project(
     commonSettings,
     description := "Scio add-on for writing to Elasticsearch",
     libraryDependencies ++= Seq(
+      "org.apache.beam" % "beam-sdks-java-core" % beamVersion,
       "joda-time" % "joda-time" % jodaTimeVersion,
+      "org.slf4j" % "slf4j-api" % slf4jVersion,
       "org.elasticsearch" % "elasticsearch" % elasticsearch2Version
     )
   )
@@ -660,7 +663,10 @@ lazy val scioElasticsearch5: Project = Project(
     commonSettings,
     description := "Scio add-on for writing to Elasticsearch",
     libraryDependencies ++= Seq(
+      "org.apache.beam" % "beam-sdks-java-core" % beamVersion,
       "joda-time" % "joda-time" % jodaTimeVersion,
+      "org.slf4j" % "slf4j-api" % slf4jVersion,
+      "org.elasticsearch" % "elasticsearch" % elasticsearch5Version,
       "org.elasticsearch.client" % "transport" % elasticsearch5Version
     )
   )
@@ -676,7 +682,11 @@ lazy val scioElasticsearch6: Project = Project(
     commonSettings,
     description := "Scio add-on for writing to Elasticsearch",
     libraryDependencies ++= Seq(
+      "org.apache.beam" % "beam-sdks-java-core" % beamVersion,
       "joda-time" % "joda-time" % jodaTimeVersion,
+      "org.slf4j" % "slf4j-api" % slf4jVersion,
+      "org.elasticsearch" % "elasticsearch" % elasticsearch6Version,
+      "org.elasticsearch" % "elasticsearch-x-content" % elasticsearch6Version,
       "org.elasticsearch.client" % "transport" % elasticsearch6Version
     )
   )
@@ -692,7 +702,12 @@ lazy val scioElasticsearch7: Project = Project(
     commonSettings,
     description := "Scio add-on for writing to Elasticsearch",
     libraryDependencies ++= Seq(
+      "org.apache.beam" % "beam-sdks-java-core" % beamVersion,
       "joda-time" % "joda-time" % jodaTimeVersion,
+      "org.slf4j" % "slf4j-api" % slf4jVersion,
+      "org.apache.httpcomponents" % "httpcore" % httpCoreVersion,
+      "org.elasticsearch" % "elasticsearch-x-content" % elasticsearch7Version,
+      "org.elasticsearch.client" % "elasticsearch-rest-client" % elasticsearch7Version,
       "org.elasticsearch.client" % "elasticsearch-rest-high-level-client" % elasticsearch7Version
     )
   )
